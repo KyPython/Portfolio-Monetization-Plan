@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en" class="light-theme">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio Monetization Plan - Journey from $0 to $250K+ ARR">
+  <meta name="theme-color" content="#3b82f6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Portfolio Map">
+  <title>Portfolio Monetization Plan</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%233b82f6'/%3E%3Ctext x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Arial'%3EP%3C/text%3E%3C/svg%3E">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Light Theme */
+      --bg-primary: #ffffff;
+      --bg-secondary: #f9fafb;
+      --bg-tertiary: #f3f4f6;
+      --text-primary: #111827;
+      --text-secondary: #6b7280;
+      --text-muted: #9ca3af;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      /* Color Palette */
+      --color-green: #10b981;
+      --color-blue: #3b82f6;
+      --color-purple: #8b5cf6;
+      --color-orange: #f59e0b;
+      --color-red: #ef4444;
+      --color-pink: #ec4899;
+      --color-indigo: #6366f1;
+      --color-yellow: #eab308;
+    }
+
+    .dark-theme {
+      --bg-primary: #111827;
+      --bg-secondary: #1f2937;
+      --bg-tertiary: #374151;
+      --text-primary: #f9fafb;
+      --text-secondary: #d1d5db;
+      --text-muted: #9ca3af;
+      --border-color: #374151;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 1000;
+      background: var(--bg-primary);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 0.75rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--color-blue);
+      outline-offset: 2px;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: var(--radius-xl);
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .header p {
+      font-size: 1.25rem;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    /* Section Component */
+    .section {
+      background: var(--bg-primary);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .section:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .section-header {
+      width: 100;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      background: var(--bg-secondary);
+      border: none;
+      transition: var(--transition);
+      gap: 1rem;
+    }
+
+    .section-header:hover {
+      background: var(--bg-tertiary);
+    }
+
+    .section-header:focus-visible {
+      outline: 2px solid var(--color-blue);
+      outline-offset: -2px;
+    }
+
+    .section-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .section-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      text-align: left;
+      color: var(--text-primary);
+    }
+
+    .section-content {
+      padding: 1.5rem;
+      display: none;
+      animation: slideDown 0.2s ease-out;
+    }
+
+    .section-content.expanded {
+      display: block;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chevron {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .chevron.rotated {
+      transform: rotate(180deg);
+    }
+
+    /* Content Styles */
+    .info-box {
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 1rem;
+      border-left: 4px solid;
+    }
+
+    .info-box.green {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: var(--color-green);
+    }
+
+    .info-box.blue {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: var(--color-blue);
+    }
+
+    .info-box.purple {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: var(--color-purple);
+    }
+
+    .info-box.orange {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: var(--color-orange);
+    }
+
+    .info-box.yellow {
+      background: rgba(234, 179, 8, 0.1);
+      border-color: var(--color-yellow);
+    }
+
+    .info-box h4 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .info-box p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .content-card {
+      background: var(--bg-primary);
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      margin-bottom: 1rem;
+    }
+
+    .content-card h5 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .content-card h6 {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .list-item span:last-child {
+      font-weight: 600;
+    }
+
+    .highlight-box {
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      margin-top: 1rem;
+      border: 2px solid;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+      border-color: var(--color-green);
+    }
+
+    .highlight-box h5 {
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .highlight-box .value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-green);
+      margin: 0.5rem 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-primary);
+      font-size: 0.75rem;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-header h5 {
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .project-revenue {
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    .project-status {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+
+    .section-heading {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 3rem 0 1.5rem 0;
+      color: var(--text-primary);
+    }
+
+    .footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem 0.75rem;
+      }
+
+      .header {
+        padding: 2rem 1.5rem;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-header {
+        padding: 1rem;
+      }
+
+      .section-content {
+        padding: 1rem;
+      }
+
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem;
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Focus styles */
+    button:focus-visible,
+    .section-header:focus-visible {
+      outline: 2px solid var(--color-blue);
+      outline-offset: 2px;
+    }
+
+    /* Print styles */
+    @media print {
+      .theme-toggle {
+        display: none;
+      }
+      .section-content {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <i data-lucide="sun" class="theme-icon"></i>
+  </button>
+
+  <div class="container">
+    <div class="header">
+      <h1>Portfolio Monetization Plan</h1>
+      <p>Journey from $0 → $250K+ ARR (2025-2035)</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Year 1 Target</div>
+          <div class="stat-value">$18.5K-68K</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Year 2 Target</div>
+          <div class="stat-value">$127K-315K</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Year 3 Target</div>
+          <div class="stat-value">$370K-660K</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Ultimate Goal</div>
+          <div class="stat-value">$250K+ ARR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 1 -->
+    <div class="section" data-section="phase1">
+      <button class="section-header" aria-expanded="true" aria-controls="phase1-content">
+        <div class="section-title-group">
+          <i data-lucide="dollar-sign" class="section-icon"></i>
+          <h3 class="section-title">Phase 1: Revenue Foundation (Months 1-6)</h3>
+        </div>
+        <i data-lucide="chevron-down" class="chevron"></i>
+      </button>
+      <div id="phase1-content" class="section-content expanded">
+        <div class="info-box green">
+          <h4>Target: $11,500-27,000 Services Revenue</h4>
+          <p>Reality Check: B2B deals take 1-3 months to close. Start with $500-2,000 micro-projects.</p>
+        </div>
+
+        <div class="content-card">
+          <h5><i data-lucide="dollar-sign" style="width: 1.25rem; height: 1.25rem;"></i> Service 1: Custom Development ($500-2,000)</h5>
+          <div class="list-item">
+            <span>Custom form automation</span>
+            <span style="color: var(--color-green);">$1,500</span>
+          </div>
+          <div class="list-item">
+            <span>Code quality scanner setup</span>
+            <span style="color: var(--color-green);">$800</span>
+          </div>
+          <div class="list-item">
+            <span>Custom dashboard</span>
+            <span style="color: var(--color-green);">$1,200</span>
+          </div>
+          <div class="list-item">
+            <span>CI/CD pipeline</span>
+            <span style="color: var(--color-green);">$1,000</span>
+          </div>
+          <div class="info-box blue">
+            <h6>AI/ML Project Layer ($1,500-5,000)</h6>
+            <div class="list-item">
+              <span>Custom RAG integration</span>
+              <span style="color: var(--color-blue);">$3,000</span>
+            </div>
+            <div class="list-item">
+              <span>Fine-tuning setup</span>
+              <span style="color: var(--color-blue);">$2,500</span>
+            </div>
+            <div class="list-item">
+              <span>Prompt engineering strategy</span>
+              <span style="color: var(--color-blue);">$1,500</span>
+            </div>
+            <div class="list-item">
+              <span>Chatbot API integration</span>
+              <span style="color: var(--color-blue);">$2,000</span>
+            </div>
+          </div>
+          <div class="info-box yellow">
+            <strong>Goal:</strong> 1 deal/month × 6 months = $9,000
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h5><i data-lucide="target" style="width: 1.25rem; height: 1.25rem;"></i> Service 2: Code Review & Audits ($500-1,500)</h5>
+          <div class="list-item">
+            <span>Standard code audit</span>
+            <span style="color: var(--color-purple);">$500-1,500</span>
+          </div>
+          <div class="info-box blue">
+            <h6>AI/ML Audits ($1,500-3,000)</h6>
+            <div class="list-item">
+              <span>AI architecture audit</span>
+              <span style="color: var(--color-blue);">$2,000</span>
+            </div>
+            <div class="list-item">
+              <span>Prompt strategy review</span>
+              <span style="color: var(--color-blue);">$1,500</span>
+            </div>
+            <div class="list-item">
+              <span>RAG evaluation</span>
+              <span style="color: var(--color-blue);">$2,500</span>
+            </div>
+          </div>
+          <div class="info-box yellow">
+            <strong>Goal:</strong> 0.5 deals/month × 6 months ≈ $4,500
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h5><i data-lucide="users" style="width: 1.25rem; height: 1.25rem;"></i> Service 3: Training & Workshops ($500-1,000)</h5>
+          <div class="list-item">
+            <span>Standard workshops</span>
+            <span style="color: var(--color-orange);">$500-1,000</span>
+          </div>
+          <div class="info-box blue">
+            <h6>AI/ML Workshops ($1,000-2,500)</h6>
+            <div class="list-item">
+              <span>Prompt engineering workshop</span>
+              <span style="color: var(--color-blue);">$1,500</span>
+            </div>
+            <div class="list-item">
+              <span>RAG training</span>
+              <span style="color: var(--color-blue);">$2,000</span>
+            </div>
+            <div class="list-item">
+              <span>Fine-tuning workshop</span>
+              <span style="color: var(--color-blue);">$1,800</span>
+            </div>
+          </div>
+          <div class="info-box yellow">
+            <strong>Goal:</strong> 0.5 workshops/month × 6 months ≈ $3,000
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <h5>Phase 1 Total Target</h5>
+          <div class="value">$11,500 - $27,000</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Combined services revenue from 3 service lines</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="section" data-section="phase2">
+      <button class="section-header" aria-expanded="false" aria-controls="phase2-content">
+        <div class="section-title-group">
+          <i data-lucide="users" class="section-icon"></i>
+          <h3 class="section-title">Phase 2: Audience Building & First Course (Months 1-12)</h3>
+        </div>
+        <i data-lucide="chevron-down" class="chevron"></i>
+      </button>
+      <div id="phase2-content" class="section-content">
+        <div class="info-box blue">
+          <h4>Phase 2A: Audience Building (Months 1-12)</h4>
+          <p>Revenue: $0 (Deliberate investment phase)</p>
+        </div>
+
+        <div class="content-card">
+          <h5>Content Strategy</h5>
+          <div class="list-item">
+            <span>1 tutorial per week based on Pragmatic projects</span>
+            <span></span>
+          </div>
+          <div class="list-item">
+            <span>1 AI/ML tutorial per month</span>
+            <span></span>
+          </div>
+          <div class="list-item">
+            <span>Cross-post: Dev.to, Medium, Reddit, LinkedIn, X</span>
+            <span></span>
+          </div>
+          <div class="list-item">
+            <span>Email list growth: 500-1,000 subscribers</span>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="info-box blue">
+          <h4>Phase 2B: First Mini-Course (Months 7-12)</h4>
+          <p>Expected Revenue: $1,000-5,000</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="content-card">
+            <h5 style="color: var(--color-green);">General Dev Mini-Course</h5>
+            <div class="list-item">
+              <span>Price</span>
+              <span>$49-99</span>
+            </div>
+            <div style="margin-top: 1rem;">
+              <strong>Topics:</strong>
+              <ul style="margin-top: 0.5rem; padding-left: 1.5rem; font-size: 0.75rem; color: var(--text-secondary);">
+                <li>Testing strategies</li>
+                <li>Code quality and refactoring</li>
+                <li>Requirements engineering</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h5 style="color: var(--color-blue);">AI/ML Mini-Courses</h5>
+            <div class="list-item">
+              <span>Price</span>
+              <span>$99-199</span>
+            </div>
+            <div style="margin-top: 1rem;">
+              <strong>Topics:</strong>
+              <ul style="margin-top: 0.5rem; padding-left: 1.5rem; font-size: 0.75rem; color: var(--text-secondary);">
+                <li>RAG Implementation Mastery</li>
+                <li>Prompt Engineering for Production</li>
+                <li>Fine-tuning from Scratch</li>
+                <li>Advanced Reasoning with LLMs</li>
+                <li>Understanding LLM Internals</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%); border-color: var(--color-blue);">
+          <h5>Phase 2 Total Target</h5>
+          <div class="value" style="color: var(--color-blue);">$1,000 - $11,000</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Course revenue (Year 1)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="section" data-section="phase3">
+      <button class="section-header" aria-expanded="false" aria-controls="phase3-content">
+        <div class="section-title-group">
+          <i data-lucide="trending-up" class="section-icon"></i>
+          <h3 class="section-title">Phase 3: Multi-Product Portfolio (Years 2-3)</h3>
+        </div>
+        <i data-lucide="chevron-down" class="chevron"></i>
+      </button>
+      <div id="phase3-content" class="section-content">
+        <div class="info-box purple">
+          <h4>Year 2-3: Scale & Diversify</h4>
+          <p>Revenue: $127K-660K depending on execution</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="content-card">
+            <h5 style="color: var(--color-green);">Services Revenue</h5>
+            <div class="list-item">
+              <span>Year 2</span>
+              <span>$30K-50K</span>
+            </div>
+            <div class="list-item">
+              <span>Year 3</span>
+              <span>$50K-80K</span>
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h5 style="color: var(--color-blue);">Course Revenue</h5>
+            <div class="list-item">
+              <span>Year 2</span>
+              <span>$57K-165K</span>
+            </div>
+            <div class="list-item">
+              <span>Year 3</span>
+              <span>$170K-280K</span>
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h5 style="color: var(--color-purple);">SaaS ARR</h5>
+            <div class="list-item">
+              <span>Year 2</span>
+              <span>$40K-100K</span>
+            </div>
+            <div class="list-item">
+              <span>Year 3</span>
+              <span>$150K-300K</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); border-color: var(--color-purple);">
+          <h5>Year 3 Total Target</h5>
+          <div class="value" style="color: var(--color-purple);">$370,000 - $660,000</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Combined revenue from all streams</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="section" data-section="phase4">
+      <button class="section-header" aria-expanded="false" aria-controls="phase4-content">
+        <div class="section-title-group">
+          <i data-lucide="target" class="section-icon"></i>
+          <h3 class="section-title">Phase 4: Portfolio Maturity (2032-2035)</h3>
+        </div>
+        <i data-lucide="chevron-down" class="chevron"></i>
+      </button>
+      <div id="phase4-content" class="section-content">
+        <div class="info-box orange">
+          <h4>Multiple Revenue Streams Operating</h4>
+          <p>Team: 8-12 people | Profitability: 40-50% margins</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="content-card">
+            <h5>Product Portfolio</h5>
+            <div class="list-item">
+              <span>EasyFlow (mature SaaS)</span>
+              <span style="color: var(--color-green);">$50K/mo</span>
+            </div>
+            <div class="list-item">
+              <span>Water Tech (hardware + SaaS)</span>
+              <span style="color: var(--color-blue);">$10K/mo</span>
+            </div>
+            <div class="list-item">
+              <span>Health Tech (hardware + data)</span>
+              <span style="color: var(--color-purple);">$8K/mo</span>
+            </div>
+            <div class="list-item">
+              <span>Consulting (services)</span>
+              <span style="color: var(--color-orange);">$15K/mo</span>
+            </div>
+            <div class="list-item">
+              <span>Education (courses, content)</span>
+              <span style="color: var(--color-pink);">$5K/mo</span>
+            </div>
+            <div class="list-item">
+              <span>Data/Insights</span>
+              <span style="color: var(--color-indigo);">$3K/mo</span>
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h5>Key Metrics</h5>
+            <div class="list-item">
+              <span>Total MRR</span>
+              <span style="color: var(--color-orange); font-size: 1.5rem;">$91K/mo</span>
+            </div>
+            <div class="list-item">
+              <span>Annual Revenue</span>
+              <span style="color: var(--color-orange); font-size: 1.5rem;">$1.09M</span>
+            </div>
+            <div class="list-item">
+              <span>Runway</span>
+              <span>18-24 months</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%); border-color: var(--color-orange);">
+          <h5>Phase 4 Total</h5>
+          <div class="value" style="color: var(--color-orange);">$1.09M Annual Revenue</div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Mature multi-product portfolio (2032-2035)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT TIERS -->
+    <h2 class="section-heading">54 Production-Ready Projects by Tier</h2>
+
+    <!-- TIER 1 -->
+    <div class="section" data-section="tier1">
+      <button class="section-header" aria-expanded="false" aria-controls="tier1-content">
+        <div class="section-title-group">
+          <i data-lucide="dollar-sign" class="section-icon"></i>
+          <h3 class="section-title">Tier 1: Immediate Money Makers (Next 30 Days)</h3>
+        </div>
+        <i data-lucide="chevron-down" class="chevron"></i>
+      </button>
+      <div id="tier1-content" class="section-content">
+        <div class="content-card" style="border-left: 4px solid var(--color-green);">
+          <div class="project-header">
+            <h5>✅ SupaCRM — Real estate CRM</h5>
+            <span class="project-revenue" style="color: var(--color-green);">$50K-200K/yr</span>
+          </div>
+          <p class="project-status">Status: Has users, needs monetization</p>
+        </div>
+
+        <div class="content-card" style="border-left: 4px solid var(--color-blue);">
+          <div class="project-header">
+            <h5>FormFlow — Form automation SaaS</h5>
+            <span class="project-revenue" style="color: var(--color-blue);">$30K-100K/yr</span>
+          </div>
+          <p class="project-status">Status: Functional, needs users</p>
+        </div>
+
+        <div class="content-card" style="border-left: 4px solid var(--color-purple);">
+          <div class="project-header">
+            <h5>AlgoClinic — Algorithm analysis platform</h5>
+            <span class="project-revenue" style="color: var(--color-purple);">$20K-80K/yr</span>
+          </div>
+          <p class="project-status">Target: Dev teams | Positioning: "Code review automation for teams"</p>
+        </div>
+
+        <div class="content-card" style="border-left: 4px solid var(--color-orange);">
+          <div class="project-header">
+            <h5>StreamEngine — Real-time data processing</h5>
+            <span class="project-revenue" style="color: var(--color-orange);">$50K-200K/yr</span>
+          </div>
+          <p class="project-status">Target: Enterprise dashboards | Positioning: "Kafka alternative for mid-market"</p>
+        </div>
+
+        <div class="content-card" style="border-left: 4px solid var(--color-pink);">
+          <div class="project-header">
+            <h5>ReportEngine — Automated reporting</h5>
+            <span class="project-revenue" style="color: var(--color-pink);">$30K-100K/yr</span>
+          </div>
+          <p class="project-status">Target: Analysts, small companies | Positioning: "Looker for teams without data engineers"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 2 -->
+    <div class="section" data-section="tier2">
+      <button class="section-header" aria-expanded="false" aria-controls="tier2-content">
+        <div class="section-title-group">
+          <i data-lucide="users" class="section-icon"></i>
+          <h3 class="section-title">Tier 2: Productized Services (Next 60 Days)</h3>
+        </div>
+        <i data-lucide="chevron-down" class="chevron"></i>
+      </button>
+      <div id="tier2-content" class="section-content">
+        <div class="info-box yellow">
+          <h4>45 Pragmatic Programmer Demonstration Projects</h4>
+          <p>Backbone for potential $500K/year EDU business</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="project-card">Cat Ate My Source Code</div>
+          <div class="project-card">Software Entropy</div>
+          <div class="project-card">Stone Soup Board</div>
+          <div class="project-card">Good Enough Soup</div>
+          <div class="project-card">Communicate</div>
+          <div class="project-card">DRY Refactor Sample</div>
+          <div class="project-card">Orthogonal Editor</div>
+          <div class="project-card">Reversible Flags</div>
+          <div class="project-card">Tracer Bullets App</div>
+          <div class="project-card">Log Filter DSL</div>
+          <div class="project-card">Estimate Tracker</div>
+          <div class="project-card">Plain Text Tools</div>
+          <div class="project-card">Shell Games Toolkit</div>
+          <div class="project-card">Power Editing Configuration</div>
+          <div class="project-card">Git Workflows Sample</div>
+          <div class="project-card">Pragmatic Teams Workflow</div>
+          <div class="project-card">Ubiquitous Automation</div>
+          <div class="project-card">Ruthless Testing Demo</div>
+          <div class="project-card">Great Expectations Stakeholders</div>
+          <div class="project-card">It's All Writing</div>
+          <div class="project-card">Debugging Demo</div>
+          <div class="project-card">Solving Impossible Puzzles</div>
+          <div class="project-card">Code Generator Tool</div>
+          <div class="project-card">Assertive Programming Demo</div>
+          <div class="project-card">Design by Contract Library</div>
+          <div class="project-card">Using Exceptions Demo</div>
+          <div class="project-card">Dead Programs Tell No Lies</div>
+          <div class="project-card">Balancing Resources Demo</div>
+          <div class="project-card">Decoupling & Law of Demeter</div>
+          <div class="project-card">Metaprogramming Demo</div>
+          <div class="project-card">Temporal Coupling Demo</div>
+          <div class="project-card">MVC Demo</div>
+          <div class="project-card">Blackboard Pattern</div>
+          <div class="project-card">Coincidence Demo</div>
+          <div class="project-card">Algorithm Speed Demo</div>
+          <div class="project-card">Refactoring Legacy Module</div>
+          <div class="project-card">Easy to Test Code</div>
+          <div class="project-card">Evil Wizards Demo</div>
+          <div class="project-card">Requirements Pit Tool</div>
+          <div class="project-card">Readiness Checklist Tool</div>
+          <div class="project-card">Specification Trap Demo</div>
+          <div class="project-card">Circles & Arrows Design</div>
+          <div class="project-card">Offline Tasks PWA</div>
+          <div class="project-card">Offline Media PWA</div>
+          <div class="project-card">AccessibleOS</div>
+        </div>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, rgba(234, 179, 8, 0.1) 0%, rgba(234, 179, 8, 0.05) 100%); border-color: var(--color-yellow);">
+          <h5>Total Potential: $500K/year EDU business</h5>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Through courses, workshops, and consulting services</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 3 -->
+    <div class="section" data-section="tier3">
+      <button class="section-header" aria-expanded="false" aria-controls="tier3-content">
+        <div class="section-title-group">
+          <i data-lucide="target" class="section-icon"></i>
+          <h3 class="section-title">Tier 3: AI/ML Projects (High-Value Consulting + SaaS)</h3>
+        </div>
+        <i data-lucide="chevron-down" class="chevron"></i>
+      </button>
+      <div id="tier3-content" class="section-content">
+        <div class="info-box" style="background: rgba(99, 102, 241, 0.1); border-color: var(--color-indigo);">
+          <h4>9 Production-Ready AI/ML Projects</h4>
+          <p>Supporting $380K-1.175M/year potential value</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">LLM Chat API</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Production-ready LLM foundation</p>
+            <span style="color: var(--color-indigo); font-weight: 700;">$20K-80K/yr</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">Prompt Engineering Playground</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Prompt optimization SaaS</p>
+            <span style="color: var(--color-indigo); font-weight: 700;">$30K-100K/yr</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">Advanced Prompting Reasoner</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Reasoning-as-a-Service</p>
+            <span style="color: var(--color-indigo); font-weight: 700;">$40K-120K/yr</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">LLM Fine-tuning Demo</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Custom models, fine-tuning pipelines</p>
+            <span style="color: var(--color-indigo); font-weight: 700;">$50K-150K/yr</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">RAG Node.js TS Service</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">RAG-as-a-Service for small/mid-market teams</p>
+            <span style="color: var(--color-indigo); font-weight: 700;">$100K-300K/yr</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">LLM Internals Report</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Consulting/Education Asset</p>
+            <span style="color: var(--color-indigo); font-weight: 700;">$20K-60K/yr</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">LLM Future Trends</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Consulting/Education Asset</p>
+            <span style="color: var(--color-indigo); font-weight: 700;">$25K-75K/yr</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">Tools & Frameworks Assistant</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">AI Agent Platform</p>
+            <span style="color: var(--color-indigo); font-weight: 700;">$35K-110K/yr</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">Ethics & Safety Toolkit</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Audit/Compliance Service</p>
+            <span style="color: var(--color-indigo); font-weight: 700;">$60K-180K/yr</span>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%); border-color: var(--color-indigo);">
+          <h5>Total Potential: $380K - $1.175M/year</h5>
+          <p style="font-size: 0.875rem; color: var(--text-secondary);">Combined service + SaaS value</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 4 -->
+    <div class="section" data-section="tier4">
+      <button class="section-header" aria-expanded="false" aria-controls="tier4-content">
+        <div class="section-title-group">
+          <i data-lucide="calendar" class="section-icon"></i>
+          <h3 class="section-title">Tier 4: Mobile / Cross-Platform (Next 90 Days)</h3>
+        </div>
+        <i data-lucide="chevron-down" class="chevron"></i>
+      </button>
+      <div id="tier4-content" class="section-content">
+        <div class="info-box" style="background: rgba(236, 72, 153, 0.1); border-color: var(--color-pink);">
+          <h4>Four High-Potential Mobile/PWA Projects</h4>
+          <p>Focus on cross-platform frameworks for speed</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">Growth Master</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Positioning: Quantified self</p>
+            <span style="color: var(--color-pink); font-weight: 700;">$10K-50K/yr</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">SmartScan AI</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Positioning: AI image captions</p>
+            <span style="color: var(--color-pink); font-weight: 700;">$20K-100K/yr</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">AltLens</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Potential: Unknown — needs clarity on problem and market</p>
+            <span style="color: var(--color-pink); font-weight: 700;">TBD</span>
+          </div>
+          <div class="content-card">
+            <h5 style="font-size: 0.875rem;">SkillSync</h5>
+            <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Positioning: Productivity suite</p>
+            <span style="color: var(--color-pink); font-weight: 700;">$30K-150K/yr</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Built with modern web standards. Designed as a living document for the 10-year portfolio journey. Last Updated: Dec 2025.</p>
+      <p style="margin-top: 0.5rem; font-weight: 600;">"Build a high‑leverage Computer Engineering / embedded‑AI career and portfolio that reaches $250K+ ARR and ≈$5M net worth by age 50."</p>
+    </div>
+  </div>
+
+  <script>
+    // Inline SVG Icons (Offline Support)
+    const icons = {
+      sun: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
+      moon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+      'dollar-sign': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+      'chevron-down': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>',
+      'chevron-up': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>',
+      target: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+      users: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+      'trending-up': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+      calendar: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>'
+    };
+
+    // Replace all data-lucide attributes with inline SVG
+    function initIcons() {
+      document.querySelectorAll('[data-lucide]').forEach(el => {
+        const iconName = el.getAttribute('data-lucide');
+        if (icons[iconName]) {
+          el.innerHTML = icons[iconName];
+          el.removeAttribute('data-lucide');
+        }
+      });
+    }
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+
+    // Load saved theme or system preference
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    html.className = savedTheme === 'dark' ? 'dark-theme' : 'light-theme';
+    updateThemeIcon();
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = html.classList.contains('dark-theme');
+      html.className = isDark ? 'light-theme' : 'dark-theme';
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      updateThemeIcon();
+    });
+
+    function updateThemeIcon() {
+      const isDark = html.classList.contains('dark-theme');
+      themeIcon.innerHTML = isDark ? icons.moon : icons.sun;
+    }
+
+    // Section Toggle Functionality
+    document.querySelectorAll('.section-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const section = header.closest('.section');
+        const content = section.querySelector('.section-content');
+        const chevron = header.querySelector('.chevron');
+        const isExpanded = content.classList.contains('expanded');
+
+        content.classList.toggle('expanded', !isExpanded);
+        chevron.classList.toggle('rotated', !isExpanded);
+        header.setAttribute('aria-expanded', !isExpanded);
+        
+        // Update chevron icon
+        const chevronIcon = chevron.querySelector('svg');
+        if (chevronIcon) {
+          chevronIcon.outerHTML = isExpanded ? icons['chevron-down'] : icons['chevron-up'];
+        }
+      });
+    });
+
+    // Keyboard navigation
+    document.querySelectorAll('.section-header').forEach(header => {
+      header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          header.click();
+        }
+      });
+    });
+
+    // Initialize icons on load
+    initIcons();
+
+    // PWA: Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((registration) => {
+            console.log('SW registered:', registration);
+          })
+          .catch((error) => {
+            console.log('SW registration failed:', error);
+          });
+      });
+    }
+
+    // PWA: Install Prompt
+    let deferredPrompt;
+    const installButton = document.createElement('button');
+    installButton.innerHTML = '📱 Install App';
+    installButton.style.cssText = 'position:fixed;bottom:1.5rem;right:1.5rem;z-index:1000;background:var(--color-blue);color:white;border:none;padding:0.75rem 1.5rem;border-radius:var(--radius-lg);cursor:pointer;box-shadow:var(--shadow-lg);font-weight:600;display:none;';
+    installButton.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log('User choice:', outcome);
+        deferredPrompt = null;
+        installButton.style.display = 'none';
+      }
+    });
+    document.body.appendChild(installButton);
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installButton.style.display = 'block';
+    });
+
+    // Offline Detection
+    const offlineIndicator = document.createElement('div');
+    offlineIndicator.innerHTML = '📴 Offline Mode';
+    offlineIndicator.style.cssText = 'position:fixed;top:1.5rem;left:1.5rem;z-index:1000;background:#10b981;color:white;padding:0.5rem 1rem;border-radius:var(--radius-md);font-size:0.875rem;font-weight:600;display:none;box-shadow:var(--shadow-md);';
+    document.body.appendChild(offlineIndicator);
+
+    function updateOnlineStatus() {
+      if (!navigator.onLine) {
+        offlineIndicator.style.display = 'block';
+      } else {
+        offlineIndicator.style.display = 'none';
+      }
+    }
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+    updateOnlineStatus();
+  </script>
+</body>
+</html>
